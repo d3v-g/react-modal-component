@@ -21,11 +21,9 @@ export default function ModalController({
         <>
             {controlElement(handleClick)}
             {/* full-screen wrapper */}
-            <div onClick={handleClose}>
+            <div>
                 {/* actual modal window */}
-                <div onClick={(e) => e.stopPropagation()}>
-                    {modalIsOpen && modalElement(handleClose)}
-                </div>
+                <div>{modalIsOpen && modalElement(handleClose)}</div>
             </div>
         </>
     )
