@@ -29,7 +29,7 @@ function App() {
                                 fermentum diam.
                             </p>
                             <button onClick={handleClose}>Cancel</button>
-                            <button>Continue</button>
+                            <button onClick={handleClose}>Continue</button>
                         </>
                     )}
                 />

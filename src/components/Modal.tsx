@@ -1,4 +1,3 @@
-// showModal, closeModal
 export default function Modal({ closeModal }: { closeModal: () => void }) {
     return (
         <>
@@ -14,7 +13,7 @@ export default function Modal({ closeModal }: { closeModal: () => void }) {
                 fermentum diam.
             </p>
             <button onClick={closeModal}>Cancel</button>
-            <button>Continue</button>
+            <button onClick={closeModal}>Continue</button>
         </>
     )
 }
