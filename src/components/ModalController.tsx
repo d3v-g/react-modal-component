@@ -18,7 +18,7 @@ export default function ModalController({
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
     return (
-        <div>
+        <div className="modal__container">
             {controlElement(handleClick)}
             {/* full-screen wrapper */}
             <div

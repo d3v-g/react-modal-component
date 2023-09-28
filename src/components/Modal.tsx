@@ -10,7 +10,7 @@ export default function Modal({
     children: ReactNode
 }) {
     return (
-        <div>
+        <div className="modal__content">
             <h1>{title}</h1>
             <p>{description}</p>
             {children}

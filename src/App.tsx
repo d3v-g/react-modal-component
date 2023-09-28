@@ -1,4 +1,4 @@
-import "./App.css"
+import "./App.scss"
 import Button from "./components/Button"
 import Modal from "./components/Modal"
 import ModalController from "./components/ModalController"
@@ -29,7 +29,7 @@ function App() {
         fermentum diam."
 
     return (
-        <div>
+        <div className="app">
             <ModalController
                 controlElement={(handleClick) => (
                     <Button
@@ -42,8 +42,10 @@ function App() {
                         title={firstModalTitle}
                         description={firstModalDescription}
                     >
-                        <button onClick={handleClose}>Cancel</button>
-                        <button onClick={handleClose}>Continue</button>
+                        <div className="modal__buttons">
+                            <button onClick={handleClose}>Cancel</button>
+                            <button onClick={handleClose}>Continue</button>
+                        </div>
                     </Modal>
                 )}
             />
@@ -60,8 +62,10 @@ function App() {
                         title={secondModalTitle}
                         description={secondModalDescription}
                     >
-                        <button onClick={handleClose}>Cancel</button>
-                        <button onClick={handleClose}>Continue</button>
+                        <div className="modal__buttons">
+                            <button onClick={handleClose}>Cancel</button>
+                            <button onClick={handleClose}>Continue</button>
+                        </div>
                     </Modal>
                 )}
             />
