@@ -4,6 +4,30 @@ import Modal from "./components/Modal"
 import ModalController from "./components/ModalController"
 
 function App() {
+    const firstModalTitle =
+        "Congratulations! Your jet2 holiday booking has been confirmed"
+    const secondModalTitle =
+        "Congratulations! Your jet2 holiday booking has been confirmed"
+
+    const firstModalDescription =
+        "Lorem ipsum dolor sit amet, consectetur\
+        adipiscing elit. Aliquam sit amet vulputate\
+        turpis. Duis pharetra lorem a orci rutrum\
+        pulvinar. Sed vel iaculis nulla, sed ornare est.\
+        Nulla pretium aliquam rutrum. Aenean\
+        sollicitudin, tellus vitae dignissim sagittis,\
+        nisi nulla finibus nibh, nec fringilla nunc urna\
+        fermentum diam."
+    const secondModalDescription =
+        "Lorem ipsum dolor sit amet, consectetur\
+        adipiscing elit. Aliquam sit amet vulputate\
+        turpis. Duis pharetra lorem a orci rutrum\
+        pulvinar. Sed vel iaculis nulla, sed ornare est.\
+        Nulla pretium aliquam rutrum. Aenean\
+        sollicitudin, tellus vitae dignissim sagittis,\
+        nisi nulla finibus nibh, nec fringilla nunc urna\
+        fermentum diam."
+
     return (
         <div>
             <ModalController
@@ -15,16 +39,8 @@ function App() {
                 )}
                 modalElement={(handleClose) => (
                     <Modal
-                        title="Congratulations! Your jet2 holiday booking has
-                        been confirmed"
-                        description="Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Aliquam sit amet vulputate
-                        turpis. Duis pharetra lorem a orci rutrum
-                        pulvinar. Sed vel iaculis nulla, sed ornare est.
-                        Nulla pretium aliquam rutrum. Aenean
-                        sollicitudin, tellus vitae dignissim sagittis,
-                        nisi nulla finibus nibh, nec fringilla nunc urna
-                        fermentum diam."
+                        title={firstModalTitle}
+                        description={firstModalDescription}
                     >
                         <button onClick={handleClose}>Cancel</button>
                         <button onClick={handleClose}>Continue</button>
@@ -41,16 +57,8 @@ function App() {
                 )}
                 modalElement={(handleClose) => (
                     <Modal
-                        title="Congratulations! Your jet2 holiday booking has
-                        been confirmed"
-                        description="Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Aliquam sit amet vulputate
-                        turpis. Duis pharetra lorem a orci rutrum
-                        pulvinar. Sed vel iaculis nulla, sed ornare est.
-                        Nulla pretium aliquam rutrum. Aenean
-                        sollicitudin, tellus vitae dignissim sagittis,
-                        nisi nulla finibus nibh, nec fringilla nunc urna
-                        fermentum diam."
+                        title={secondModalTitle}
+                        description={secondModalDescription}
                     >
                         <button onClick={handleClose}>Cancel</button>
                         <button onClick={handleClose}>Continue</button>
