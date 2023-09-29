@@ -1,5 +1,6 @@
 import { useState } from "react"
-import "./App.scss"
+import "./styles/app.scss"
+import { ButtonType } from "./enum/enum"
 import Button from "./components/Button"
 import Modal from "./components/Modal"
 
@@ -35,6 +36,7 @@ function App() {
             <Button
                 handleClick={() => setOpenedModalId(1)}
                 label="Open first modal"
+                type={ButtonType.PRIMARY}
             />
 
             <Modal
@@ -42,13 +44,22 @@ function App() {
                 description={firstModalDescription}
                 isOpen={openedModalId === 1}
             >
-                <button onClick={() => setOpenedModalId(0)}>Cancel</button>
-                <button onClick={() => setOpenedModalId(2)}>Continue</button>
+                <Button
+                    handleClick={() => setOpenedModalId(0)}
+                    label="Cancel"
+                    type={ButtonType.SECONDARY}
+                />
+                <Button
+                    handleClick={() => setOpenedModalId(2)}
+                    label="Continue"
+                    type={ButtonType.PRIMARY}
+                />
             </Modal>
 
             <Button
                 handleClick={() => setOpenedModalId(2)}
                 label="Open second modal"
+                type={ButtonType.SECONDARY}
             />
 
             <Modal
@@ -56,8 +67,16 @@ function App() {
                 description={secondModalDescription}
                 isOpen={openedModalId === 2}
             >
-                <button onClick={() => setOpenedModalId(0)}>Cancel</button>
-                <button onClick={() => setOpenedModalId(1)}>Continue</button>
+                <Button
+                    handleClick={() => setOpenedModalId(0)}
+                    label="Cancel"
+                    type={ButtonType.SECONDARY}
+                />
+                <Button
+                    handleClick={() => setOpenedModalId(1)}
+                    label="Continue"
+                    type={ButtonType.PRIMARY}
+                />
             </Modal>
         </div>
     )
