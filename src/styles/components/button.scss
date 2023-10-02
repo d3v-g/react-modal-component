@@ -11,10 +11,6 @@
     
     cursor: pointer;
   
-    &:focus, &:focus-visible {
-      outline: 4px auto -webkit-focus-ring-color;
-    }
-
     &--primary {
         background-color: #4c4c52;
         color: whitesmoke;
