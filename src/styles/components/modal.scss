@@ -1,5 +1,7 @@
 @import "../abstracts/mixins";
 
+$light-gray: #888888;
+
 .modal__container{
     position: absolute;
     width: 100%;
@@ -12,18 +14,40 @@
 }
 
 .modal__content {
+    padding: 4em 3em;
+    text-align: left;
+
+    p {
+        font-weight: 300;
+        line-height: 1.2;
+        color: $light-gray;
+        font-size: medium;
+    }
+}
+
+.modal__box {
     margin-top: auto;
     background-color: snow;
-    padding: 2em;
-    text-align: left;
 
     @include respond(desktop) {
         margin: auto;
         max-width: 45rem;
     }
-    p {
-        font-weight: 200;
-        line-height: 1.1;
+}
+
+.modal__title {
+    &--success {
+        &::before {
+            content: url('../../assets/success.svg');
+            margin-right: 5px;
+        }
+    }
+
+    &--error {
+        &::before {
+            content: url('../../assets/error.svg');
+            margin-right: 5px;
+        }
     }
 }
 
@@ -31,6 +55,8 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    margin: 2em 0;
+    padding: 0 3em;
     
     @include respond(desktop) {
         flex-direction: row;
@@ -40,4 +66,10 @@
 
 .modal__description--screenreader{
     position: absolute;
+}
+
+.modal__divider {
+    display: block;
+    width: 100%;
+    color: $light-gray;
 }
