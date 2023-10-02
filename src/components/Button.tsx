@@ -1,11 +1,13 @@
 import "../styles/components/button.scss"
 import { ButtonType } from "../enum/enum"
 
-const Button: React.FC<{
+export interface IButtonProps {
     handleClick: () => void
     label: string
     type: ButtonType
-}> = ({ handleClick, label, type }) => {
+}
+
+const Button: React.FC<IButtonProps> = ({ handleClick, label, type }) => {
     return (
         <button
             className={
