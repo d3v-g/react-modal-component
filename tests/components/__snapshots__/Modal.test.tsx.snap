@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Modal Component > when modal is open > appearance > modal with a success status 1`] = `
+<div>
+  <div
+    aria-describedby="modal description"
+    aria-labelledby="modal title"
+    aria-modal="true"
+    class="modal__container"
+    data-testid="modal"
+  >
+    <div
+      aria-label="Test label"
+      class="modal__box"
+      role="dialog"
+    >
+      <div
+        class="modal__content"
+      >
+        <h1
+          class="modal__title modal__title--success"
+          id="modal title"
+        >
+          Test label title
+        </h1>
+        <p
+          id="modal description"
+        >
+          Test description
+        </p>
+      </div>
+      <hr
+        class="modal__divider"
+      />
+      <div
+        class="modal__children"
+      >
+        <div>
+          test children
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal Component > when modal is open > appearance > modal with an error status 1`] = `
+<div>
+  <div
+    aria-describedby="modal description"
+    aria-labelledby="modal title"
+    aria-modal="true"
+    class="modal__container"
+    data-testid="modal"
+  >
+    <div
+      aria-label="Test label"
+      class="modal__box"
+      role="dialog"
+    >
+      <div
+        class="modal__content"
+      >
+        <h1
+          class="modal__title modal__title--error"
+          id="modal title"
+        >
+          Test label title
+        </h1>
+        <p
+          id="modal description"
+        >
+          Test description
+        </p>
+      </div>
+      <hr
+        class="modal__divider"
+      />
+      <div
+        class="modal__children"
+      >
+        <div>
+          test children
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
