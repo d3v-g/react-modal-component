@@ -3,7 +3,6 @@ import Button from "./Button"
 import "../styles/components/modal.scss"
 
 export interface IModalProps {
-    ariaLabel: string
     isOpen: boolean
     title: string
     description: string
@@ -13,7 +12,6 @@ export interface IModalProps {
 }
 
 export const Modal: React.FC<IModalProps> = ({
-    ariaLabel,
     isOpen,
     title,
     description,
@@ -31,7 +29,7 @@ export const Modal: React.FC<IModalProps> = ({
             className="modal__container"
             data-testid="modal"
         >
-            <div className="modal__box" role="dialog" aria-label={ariaLabel}>
+            <div className="modal__box" role="dialog" aria-label={title}>
                 <div className="modal__content">
                     <h1
                         className={

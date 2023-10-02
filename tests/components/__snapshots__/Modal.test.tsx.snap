@@ -10,7 +10,7 @@ exports[`Modal Component > when modal is open > appearance > modal with a succes
     data-testid="modal"
   >
     <div
-      aria-label="Test label"
+      aria-label="Test modal title"
       class="modal__box"
       role="dialog"
     >
@@ -21,7 +21,7 @@ exports[`Modal Component > when modal is open > appearance > modal with a succes
           class="modal__title modal__title--success"
           id="modal title"
         >
-          Test label title
+          Test modal title
         </h1>
         <p
           id="modal description"
@@ -61,7 +61,7 @@ exports[`Modal Component > when modal is open > appearance > modal with an error
     data-testid="modal"
   >
     <div
-      aria-label="Test label"
+      aria-label="Test modal title"
       class="modal__box"
       role="dialog"
     >
@@ -72,7 +72,7 @@ exports[`Modal Component > when modal is open > appearance > modal with an error
           class="modal__title modal__title--error"
           id="modal title"
         >
-          Test label title
+          Test modal title
         </h1>
         <p
           id="modal description"

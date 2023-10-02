@@ -36,7 +36,6 @@ function App() {
             />
 
             <Modal
-                ariaLabel="success modal"
                 title={firstModalTitle}
                 description={firstModalDescription}
                 isOpen={openedModalId === 1}
@@ -52,7 +51,6 @@ function App() {
             />
 
             <Modal
-                ariaLabel="error modal"
                 title={secondModalTitle}
                 description={secondModalDescription}
                 isOpen={openedModalId === 2}

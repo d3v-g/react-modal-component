@@ -10,9 +10,8 @@ describe("Modal Component", () => {
 
     describe("when modal is not open", () => {
         modalProps = {
-            ariaLabel: "Test label",
             isOpen: false,
-            title: "Test label title",
+            title: "Test modal title",
             description: "Test description",
             status: ModalStatus.SUCCESS,
             onClose: vi.fn(),
@@ -28,9 +27,8 @@ describe("Modal Component", () => {
     describe("when modal is open", () => {
         beforeEach(() => {
             modalProps = {
-                ariaLabel: "Test label",
                 isOpen: true,
-                title: "Test label title",
+                title: "Test modal title",
                 description: "Test description",
                 status: ModalStatus.SUCCESS,
                 onClose: vi.fn(),
@@ -47,21 +45,13 @@ describe("Modal Component", () => {
             expect(modal).toHaveAttribute("aria-modal", "true")
         })
 
-        it("renders a modal with the correct aria-label", () => {
-            const ariaLabel = "render this aria-label"
-            modalProps = { ...modalProps, ariaLabel }
-            render(<Modal {...modalProps} />)
-
-            expect(screen.getByRole("dialog")).toHaveAccessibleName(ariaLabel)
-        })
-
         it("renders a modal with the correct title", () => {
             const title = "render this title"
             modalProps = { ...modalProps, title }
             render(<Modal {...modalProps} />)
 
             const modalTitle = screen.getByRole("heading", { level: 1 })
-
+            expect(screen.getByRole("dialog")).toHaveAccessibleName(title)
             expect(modalTitle).toHaveTextContent(title)
 
             expect(modalTitle).toHaveAttribute("id", "modal title")
@@ -92,9 +82,8 @@ describe("Modal Component", () => {
             beforeEach(() => {
                 user = userEvent.setup()
                 modalProps = {
-                    ariaLabel: "Test label",
                     isOpen: true,
-                    title: "Test label title",
+                    title: "Test modal title",
                     description: "Test description",
                     status: ModalStatus.SUCCESS,
                     onClose: vi.fn(),
@@ -132,9 +121,8 @@ describe("Modal Component", () => {
         describe("appearance", () => {
             beforeEach(() => {
                 modalProps = {
-                    ariaLabel: "Test label",
                     isOpen: true,
-                    title: "Test label title",
+                    title: "Test modal title",
                     description: "Test description",
                     status: ModalStatus.SUCCESS,
                     onClose: vi.fn(),
