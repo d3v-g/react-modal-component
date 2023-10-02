@@ -2,30 +2,34 @@ import { ReactNode } from "react"
 import { ModalStatus } from "../enum/enum"
 import "../styles/components/modal.scss"
 
-export default function Modal({
-    ariaLabel,
-    isOpen,
-    title,
-    description,
-    status,
-    children,
-}: {
+export interface IModalProps {
     ariaLabel: string
     isOpen: boolean
     title: string
     description: string
     status: ModalStatus
     children: ReactNode
-}) {
+}
+
+export const Modal: React.FC<IModalProps> = ({
+    ariaLabel,
+    isOpen,
+    title,
+    description,
+    status,
+    children,
+}) => {
     if (!isOpen) return null
 
     return (
-        <div aria-describedby="modal description" className="modal__container">
+        <div
+            aria-labelledby="modal title"
+            aria-describedby="modal description"
+            aria-modal="true"
+            className="modal__container"
+            data-testid="modal"
+        >
             <div className="modal__box" role="dialog" aria-label={ariaLabel}>
-                <div
-                    className="modal__description--screenreader"
-                    id="modal description"
-                ></div>
                 <div className="modal__content">
                     <h1
                         className={
@@ -34,10 +38,11 @@ export default function Modal({
                                 ? "modal__title--success"
                                 : "modal__title--error")
                         }
+                        id="modal title"
                     >
                         {title}
                     </h1>
-                    <p>{description}</p>
+                    <p id="modal description">{description}</p>
                 </div>
 
                 <hr className="modal__divider" />
@@ -47,3 +52,5 @@ export default function Modal({
         </div>
     )
 }
+
+export default Modal
