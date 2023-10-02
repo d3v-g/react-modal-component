@@ -41,18 +41,9 @@ function App() {
                 description={firstModalDescription}
                 isOpen={openedModalId === 1}
                 status={ModalStatus.SUCCESS}
-            >
-                <Button
-                    handleClick={closeModal}
-                    label="Cancel"
-                    type={ButtonType.SECONDARY}
-                />
-                <Button
-                    handleClick={() => setOpenedModalId(2)}
-                    label="Continue"
-                    type={ButtonType.PRIMARY}
-                />
-            </Modal>
+                onClose={closeModal}
+                onContinue={() => setOpenedModalId(2)}
+            />
 
             <Button
                 handleClick={() => setOpenedModalId(2)}
@@ -66,18 +57,9 @@ function App() {
                 description={secondModalDescription}
                 isOpen={openedModalId === 2}
                 status={ModalStatus.ERROR}
-            >
-                <Button
-                    handleClick={closeModal}
-                    label="Cancel"
-                    type={ButtonType.SECONDARY}
-                />
-                <Button
-                    handleClick={closeModal}
-                    label="Continue"
-                    type={ButtonType.PRIMARY}
-                />
-            </Modal>
+                onClose={closeModal}
+                onContinue={closeModal}
+            />
         </div>
     )
 }

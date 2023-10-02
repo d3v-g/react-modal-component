@@ -1,5 +1,5 @@
-import { ReactNode } from "react"
-import { ModalStatus } from "../enum/enum"
+import { ButtonType, ModalStatus } from "../enum/enum"
+import Button from "./Button"
 import "../styles/components/modal.scss"
 
 export interface IModalProps {
@@ -8,7 +8,8 @@ export interface IModalProps {
     title: string
     description: string
     status: ModalStatus
-    children: ReactNode
+    onClose: () => void
+    onContinue: () => void
 }
 
 export const Modal: React.FC<IModalProps> = ({
@@ -17,7 +18,8 @@ export const Modal: React.FC<IModalProps> = ({
     title,
     description,
     status,
-    children,
+    onClose,
+    onContinue,
 }) => {
     if (!isOpen) return null
 
@@ -47,7 +49,18 @@ export const Modal: React.FC<IModalProps> = ({
 
                 <hr className="modal__divider" />
 
-                <div className="modal__children">{children}</div>
+                <div className="modal__children">
+                    <Button
+                        handleClick={onClose}
+                        label="Cancel"
+                        type={ButtonType.SECONDARY}
+                    />
+                    <Button
+                        handleClick={onContinue}
+                        label="Continue"
+                        type={ButtonType.PRIMARY}
+                    />
+                </div>
             </div>
         </div>
     )

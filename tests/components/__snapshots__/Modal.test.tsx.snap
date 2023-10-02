@@ -35,9 +35,16 @@ exports[`Modal Component > when modal is open > appearance > modal with a succes
       <div
         class="modal__children"
       >
-        <div>
-          test children
-        </div>
+        <button
+          class="btn btn--secondary"
+        >
+          Cancel
+        </button>
+        <button
+          class="btn btn--primary"
+        >
+          Continue
+        </button>
       </div>
     </div>
   </div>
@@ -79,9 +86,16 @@ exports[`Modal Component > when modal is open > appearance > modal with an error
       <div
         class="modal__children"
       >
-        <div>
-          test children
-        </div>
+        <button
+          class="btn btn--secondary"
+        >
+          Cancel
+        </button>
+        <button
+          class="btn btn--primary"
+        >
+          Continue
+        </button>
       </div>
     </div>
   </div>

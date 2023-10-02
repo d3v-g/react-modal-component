@@ -1,8 +1,9 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import Modal, { IModalProps } from "../../src/components/Modal"
-import userEvent from "@testing-library/user-event"
+import userEvent, { UserEvent } from "@testing-library/user-event"
 import { ModalStatus } from "../../src/enum/enum"
+import { vi } from "vitest"
 
 describe("Modal Component", () => {
     let modalProps: IModalProps
@@ -14,7 +15,8 @@ describe("Modal Component", () => {
             title: "Test label title",
             description: "Test description",
             status: ModalStatus.SUCCESS,
-            children: <div>test children</div>,
+            onClose: vi.fn(),
+            onContinue: vi.fn(),
         }
 
         it("does not render the modal", () => {
@@ -31,7 +33,8 @@ describe("Modal Component", () => {
                 title: "Test label title",
                 description: "Test description",
                 status: ModalStatus.SUCCESS,
-                children: <div>test children</div>,
+                onClose: vi.fn(),
+                onContinue: vi.fn(),
             }
         })
 
@@ -84,6 +87,48 @@ describe("Modal Component", () => {
             )
         })
 
+        describe("user interactions", () => {
+            let user: UserEvent
+            beforeEach(() => {
+                user = userEvent.setup()
+                modalProps = {
+                    ariaLabel: "Test label",
+                    isOpen: true,
+                    title: "Test label title",
+                    description: "Test description",
+                    status: ModalStatus.SUCCESS,
+                    onClose: vi.fn(),
+                    onContinue: vi.fn(),
+                }
+            })
+
+            test("onClose is called when cancel button is clicked", async () => {
+                const onCloseSpy = vi.fn()
+                modalProps = { ...modalProps, onClose: onCloseSpy }
+                render(<Modal {...modalProps} />)
+
+                const cancelButton = screen.getByRole("button", {
+                    name: /cancel/i,
+                })
+
+                await user.click(cancelButton)
+                expect(onCloseSpy).toHaveBeenCalledTimes(1)
+            })
+
+            test("onContinue is called when continue button is clicked", async () => {
+                const onContinueSpy = vi.fn()
+                modalProps = { ...modalProps, onContinue: onContinueSpy }
+                render(<Modal {...modalProps} />)
+
+                const cancelButton = screen.getByRole("button", {
+                    name: /continue/i,
+                })
+
+                await user.click(cancelButton)
+                expect(onContinueSpy).toHaveBeenCalledTimes(1)
+            })
+        })
+
         describe("appearance", () => {
             beforeEach(() => {
                 modalProps = {
@@ -92,7 +137,8 @@ describe("Modal Component", () => {
                     title: "Test label title",
                     description: "Test description",
                     status: ModalStatus.SUCCESS,
-                    children: <div>test children</div>,
+                    onClose: vi.fn(),
+                    onContinue: vi.fn(),
                 }
             })
 
