@@ -1,27 +1,84 @@
-# React + TypeScript + Vite
+# Jet2 Tech Test Solution - build a responsive modal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
+Javascript is essential when creating a modal that can open and close upon user interaction. React as one of the most popular Javascript libraries, greatly simplifies adding interactivity to a web page, which is the main reason behind using React in my solution. 
 
-Currently, two official plugins are available:
+React's compositional and functional nature also makes it great for creating reusable components. By extracting a [modal component](src/components/Modal.tsx), it can be reused as many times as needed across the whole application, and the same behaviour is expected. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In addition, the solution makes use of Typescript instead of Vanilla Javascript to add type safety checks at compile time instead of runtime. This allows the developer to catch errors early and write cleaner code.
 
-## Expanding the ESLint configuration
+### Project structure
+- [src/](src/)
+  - [App.tsx](src/App.tsx)
+   Two instances (success & error) of the Modal component in action, each triggered by a button and controlled using the useState hook. The first modal can also continue onto the second modal, showing that one modal can trigger another modal if needed.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  - [components/](src/components/)
+     - [Modal.tsx](src/components/Modal.tsx)
+         The modal component has the following features:
+         - Returns null if modal is not open, returns a modal if it is open
+         - A dialog window with title, description, and two buttons to either close or continue the modal
+         - Accessibility features such as aria-label, aria-describedby, aria-modal
+         - Responsive and mobile first using the min-width media query (from 37.5em onwards is desktop).
+         - The opening, closing, and continuing of a modal can be controlled via state stored outside of the component.
+         - Depdending on the status of a modal(success/error), a different icon is shown in front of the title
+     - [Button.tsx](src/components/Button.tsx)
+      A reusable button component.
 
-- Configure the top-level `parserOptions` property like this:
+   - [styles](src/styles/)
+      Project style files using SASS.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+   - [enum](src/enum/)
+      Project enum types for Typescript.
+
+   - [assets](src/assets/)
+      Project static assets.
+
+- [tests/](tests/)
+   - [App.test.tsx](tests/App.test.tsx)
+      Unit and intergration tests for the App component
+   - [components/Modal.test.tsx](tests/components/Modal.test.tsx)
+      Unit tests for the modal component
+   - [components/\__snapshots__/](tests/components/__snapshots__/)
+      snapshots of the modal component
+
+
+## Solution stack
+- React v18
+- Typescript v5
+- Vite
+- HTML
+- SASS (node-sass using [.scss files](src/styles/))
+- Eslint
+
+   #### Testing stack
+   - Vitest
+   - React Testing Library
+
+   #### Developer tooling
+   - Eslint
+   - VScode
+   - Prettier
+   - Git
+
+## How to run
+1. Install all dependencies
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Run in development mode
+```bash
+npm run dev
+```
+
+3. Open http://localhost:5173/ to view the solution.
+
+### Run unit tests
+```bash
+npm run test
+```
+
+### Run eslint
+```bash
+npm run lint
+```
