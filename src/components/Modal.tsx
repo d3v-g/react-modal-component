@@ -47,7 +47,7 @@ export const Modal: React.FC<IModalProps> = ({
 
                 <hr className="modal__divider" />
 
-                <div className="modal__children">
+                <div className="modal__buttons">
                     <Button
                         handleClick={onClose}
                         label="Cancel"
