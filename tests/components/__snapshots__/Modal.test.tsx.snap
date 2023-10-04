@@ -33,7 +33,7 @@ exports[`Modal Component > when modal is open > appearance > modal with a succes
         class="modal__divider"
       />
       <div
-        class="modal__children"
+        class="modal__buttons"
       >
         <button
           class="btn btn--secondary"
@@ -84,7 +84,7 @@ exports[`Modal Component > when modal is open > appearance > modal with an error
         class="modal__divider"
       />
       <div
-        class="modal__children"
+        class="modal__buttons"
       >
         <button
           class="btn btn--secondary"
