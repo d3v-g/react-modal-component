@@ -24,13 +24,13 @@ In addition, the solution makes use of Typescript instead of Vanilla Javascript 
      - [Button.tsx](src/components/Button.tsx)
       A reusable button component.
 
-   - [styles](src/styles/)
+   - [styles/](src/styles/)
       Project style files using SASS.
 
-   - [enum](src/enum/)
+   - [enum/](src/enum/)
       Project enum types for Typescript.
 
-   - [assets](src/assets/)
+   - [assets/](src/assets/)
       Project static assets.
 
 - [tests/](tests/)
